@@ -1,0 +1,3 @@
+# Ignorar toolchains locales del backend
+backendmultiempresarial/.jdk/
+backendmultiempresarial/.maven/

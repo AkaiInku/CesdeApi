@@ -24,7 +24,16 @@ import { LineChart } from "lucide-react";
 //      Formato de cada objeto:  { titulo: "Mi grafica", url: "/graficas/mi_imagen.png" }
 //      Empieza vacia a proposito: aqui NO hay ninguna grafica precargada.
 const GRAFICAS = [
-  // { titulo: "Ejemplo", url: "/graficas/ejemplo.png" },
+  { titulo: "Grafica 1", url: "/graficas/grafica1.png" },
+  { titulo: "Grafica 2", url: "/graficas/grafica2.png" },
+  { titulo: "Grafica 3", url: "/graficas/grafica3.png" },
+  { titulo: "Grafica 4", url: "/graficas/grafica4.png" },
+  { titulo: "Grafica 5", url: "/graficas/grafica5.png" },
+  { titulo: "Grafica 6", url: "/graficas/grafica6.png" },
+  { titulo: "Grafica 7", url: "/graficas/grafica7.png" },
+  { titulo: "Grafica 8", url: "/graficas/grafica8.png" },
+  { titulo: "Grafica 9", url: "/graficas/grafica9.png" },
+  { titulo: "Grafica 10", url: "/graficas/grafica10.png" },
 ];
 
 

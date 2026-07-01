@@ -73,8 +73,10 @@ def cantidad_gastos_por_usuario(data_frame_gasto):
 #   (compara cuantos gastos grandes hay en cada categoria -> barras)
 def gastos_grandes_por_descripcion(data_frame_gasto):
 
-    #TAREA 4.1 query: quedarse SOLO con los gastos grandes (por ejemplo monto > 100000)
-    data_frame_gasto = data_frame_gasto.query("monto > 100000")
+    #TAREA 4.1 query: quedarse SOLO con los gastos grandes
+    #Usamos umbral dinamico (promedio) para que funcione con datasets pequenos y grandes.
+    umbral_gasto_grande = data_frame_gasto["monto"].mean()
+    data_frame_gasto = data_frame_gasto.query("monto > @umbral_gasto_grande")
 
     #TAREA 4.2 groupby: agrupar por "descripcion" y CONTAR cuantos gastos grandes hay
     resultado=data_frame_gasto.groupby("descripcion").size()

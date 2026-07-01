@@ -13,6 +13,10 @@ from notebook.transformacion.transformarUsuario import usuarios_por_edad_en_rang
 from notebook.transformacion.transformarUsuario import resumen_por_nombre
 from notebook.transformacion.transformarUsuario import usuarios_adultos_por_nombre
 from notebook.transformacion.transformacionGasto import total_gastado_por_descripcion
+from notebook.transformacion.transformacionGasto import promedio_gasto_por_descripcion
+from notebook.transformacion.transformacionGasto import cantidad_gastos_por_usuario
+from notebook.transformacion.transformacionGasto import gastos_grandes_por_descripcion
+from notebook.transformacion.transformacionGasto import resumen_por_descripcion
 
 
 
@@ -70,12 +74,26 @@ datos_gastos_limpios=limpiar_datos_gasto(datos_gastos_df)
 
 #tarea: llamar a la funcion que agrupa los datos de gastos
 total_gastado=total_gastado_por_descripcion(datos_gastos_limpios)
+promedio_gasto=promedio_gasto_por_descripcion(datos_gastos_limpios)
+cantidad_gastos=cantidad_gastos_por_usuario(datos_gastos_limpios)
+gastos_grandes=gastos_grandes_por_descripcion(datos_gastos_limpios)
+resumen_gastos=resumen_por_descripcion(datos_gastos_limpios)
 print(total_gastado)
 
 #grafica 6: gastos por descripción (datos limpios y agrupados)
 grafica_barras(total_gastado["descripcion"],total_gastado["monto"],"gastos por descripcion","descripcion","monto",os.path.join(carpeta_graficas,"grafica6.png"))
 
-#tarea final: graficar las agrupaciones 6,7,8,9,10
+#grafica 7: promedio de gasto por descripcion
+grafica_barras(promedio_gasto.index,promedio_gasto.values,"promedio de gasto por descripcion","descripcion","monto promedio",os.path.join(carpeta_graficas,"grafica7.png"))
+
+#grafica 8: cantidad de gastos por usuario
+grafica_torta(cantidad_gastos.index,cantidad_gastos.values,"cantidad de gastos por usuario",os.path.join(carpeta_graficas,"grafica8.png"))
+
+#grafica 9: cantidad de gastos grandes por descripcion
+grafica_barras(gastos_grandes.index,gastos_grandes.values,"gastos grandes por descripcion","descripcion","cantidad gastos grandes",os.path.join(carpeta_graficas,"grafica9.png"))
+
+#grafica 10: resumen de monto total por descripcion
+grafica_barras(resumen_gastos.index,resumen_gastos["monto_total"],"resumen de monto total por descripcion","descripcion","monto total",os.path.join(carpeta_graficas,"grafica10.png"))
 
 
 
